@@ -9,9 +9,9 @@ export default async function HomePage() {
   const cases = await getAllCases()
 
   const stats = [
-    { label: 'Cases Verified',     value: index.cases.length },
-    { label: 'Servers Documented', value: index.servers.length },
-    { label: 'Reports Published',  value: index.reports.length },
+    { label: 'Cases Verified',        value: index.cases.length },
+    { label: 'Servers Documented',    value: index.servers.length },
+    { label: 'Reports Published',     value: index.reports.length },
     { label: 'Architecture Patterns', value: 6 },
   ]
 
@@ -62,6 +62,35 @@ export default async function HomePage() {
         </div>
         <div className="grid md:grid-cols-3 gap-5">
           {cases.map((c) => <CaseCard key={c.slug} c={c} />)}
+        </div>
+      </section>
+
+      {/* Submit a Case CTA */}
+      <section className="border-t border-navy-800 bg-navy-900/60">
+        <div className="mx-auto max-w-3xl px-4 py-16 text-center space-y-5">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-cyan-900/40 border border-cyan-800 text-cyan-400">
+            Open Source
+          </div>
+          <h2 className="text-2xl md:text-3xl font-bold text-white">
+            Know an enterprise using MCP?
+          </h2>
+          <p className="text-navy-300 max-w-xl mx-auto">
+            Submit a verified case study. We review every submission for evidence quality
+            before publishing. Use the Score Calculator to check your case first.
+          </p>
+          <div className="flex flex-wrap justify-center gap-4 pt-2">
+            <a
+              href="https://github.com/SamoTech/mcp-atlas/issues/new?template=case_submission.yml&title=Submit+Case&labels=case-submission"
+              target="_blank" rel="noopener noreferrer"
+              className="px-6 py-3 rounded-lg bg-cyan-500 text-navy-900 font-semibold hover:bg-cyan-400 transition"
+            >
+              Submit a Case →
+            </a>
+            <Link href="/score"
+              className="px-6 py-3 rounded-lg border border-navy-600 text-navy-300 hover:border-cyan-500 hover:text-cyan-400 transition">
+              Score Calculator
+            </Link>
+          </div>
         </div>
       </section>
     </div>

@@ -6,6 +6,7 @@ const links = [
   { href: '/servers',  label: 'Servers' },
   { href: '/patterns', label: 'Patterns' },
   { href: '/reports',  label: 'Reports' },
+  { href: '/score',    label: 'Score' },
 ]
 
 export default function NavBar() {
@@ -27,11 +28,11 @@ export default function NavBar() {
         </nav>
 
         <a
-          href={process.env.NEXT_PUBLIC_GITHUB_URL ?? 'https://github.com/SamoTech/mcp-atlas'}
+          href="https://github.com/SamoTech/mcp-atlas/issues/new?template=case_submission.yml&title=Submit+Case&labels=case-submission"
           target="_blank" rel="noopener noreferrer"
-          className="text-xs font-medium px-3 py-1.5 rounded-lg border border-navy-600 text-navy-300 hover:border-cyan-500 hover:text-cyan-400 transition"
+          className="text-xs font-semibold px-3 py-1.5 rounded-lg bg-cyan-500/10 border border-cyan-700 text-cyan-400 hover:bg-cyan-500/20 hover:border-cyan-400 transition"
         >
-          GitHub ↗
+          + Submit Case
         </a>
       </div>
     </header>
