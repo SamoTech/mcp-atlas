@@ -4,13 +4,16 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
+import ThemeToggle from './ThemeToggle'
 
 const links = [
-  { href: '/cases',    label: 'Cases' },
-  { href: '/servers',  label: 'Servers' },
-  { href: '/patterns', label: 'Patterns' },
-  { href: '/reports',  label: 'Reports' },
-  { href: '/score',    label: 'Score' },
+  { href: '/cases',     label: 'Cases' },
+  { href: '/servers',   label: 'Servers' },
+  { href: '/patterns',  label: 'Patterns' },
+  { href: '/reports',   label: 'Reports' },
+  { href: '/score',     label: 'Score' },
+  { href: '/compare',   label: 'Compare' },
+  { href: '/changelog', label: "What's New" },
 ]
 
 export default function NavBar() {
@@ -31,7 +34,7 @@ export default function NavBar() {
           <span className="font-bold text-white">MCP <span className="text-cyan-400">Atlas</span></span>
         </Link>
 
-        <nav className="hidden md:flex items-center gap-6">
+        <nav className="hidden md:flex items-center gap-5">
           {links.map((l) => (
             <Link key={l.href} href={l.href}
               className={`text-sm transition ${
@@ -45,13 +48,11 @@ export default function NavBar() {
         </nav>
 
         <div className="flex items-center gap-2">
-          {/* Search icon */}
-          <Link href="/search"
-            aria-label="Search"
+          <Link href="/search" aria-label="Search"
             className="hidden md:flex items-center justify-center w-8 h-8 rounded-lg border border-navy-700 text-navy-400 hover:border-cyan-600 hover:text-cyan-400 transition text-sm">
             🔍
           </Link>
-
+          <ThemeToggle />
           <a
             href="https://github.com/SamoTech/mcp-atlas/issues/new?template=case_submission.yml&title=Submit+Case&labels=case-submission"
             target="_blank" rel="noopener noreferrer"
@@ -59,7 +60,6 @@ export default function NavBar() {
           >
             + Submit Case
           </a>
-
           <button
             onClick={() => setOpen((v) => !v)}
             aria-label="Toggle menu"

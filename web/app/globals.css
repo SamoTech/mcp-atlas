@@ -2,71 +2,44 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  body {
-    @apply bg-navy-950 text-white;
-  }
+:root {
+  color-scheme: dark;
 }
 
-/* Prose styles for markdown content */
-.prose {
-  @apply text-navy-200;
+/* ===== Dark mode (default) ===== */
+html {
+  background-color: #070E15;
+  color: #CBD5E1;
 }
-.prose h1, .prose h2, .prose h3, .prose h4 {
-  @apply text-white font-bold;
+
+/* ===== Light mode override ===== */
+html.light {
+  color-scheme: light;
+  background-color: #F0F4F8;
+  color: #1E293B;
 }
-.prose h2 {
-  @apply text-xl mt-8 mb-3;
+
+html.light .bg-navy-900  { background-color: #FFFFFF !important; }
+html.light .bg-navy-800  { background-color: #F1F5F9 !important; }
+html.light .border-navy-800 { border-color: #E2E8F0 !important; }
+html.light .border-navy-700 { border-color: #CBD5E1 !important; }
+html.light .text-navy-400 { color: #64748B !important; }
+html.light .text-navy-300 { color: #475569 !important; }
+html.light .text-white    { color: #0F172A !important; }
+html.light .bg-navy-900\/90 { background-color: rgba(255,255,255,0.95) !important; }
+html.light .bg-navy-900\/60 { background-color: rgba(255,255,255,0.6)  !important; }
+html.light .bg-navy-900\/50 { background-color: rgba(241,245,249,0.8)  !important; }
+
+/* Prose light mode */
+html.light .prose-invert  {
+  --tw-prose-body: #1E293B;
+  --tw-prose-headings: #0F172A;
+  --tw-prose-links: #0891B2;
+  --tw-prose-code: #0F172A;
+  --tw-prose-pre-bg: #F1F5F9;
 }
-.prose h3 {
-  @apply text-lg mt-6 mb-2;
-}
-.prose p {
-  @apply mb-4 leading-relaxed;
-}
-.prose a {
-  @apply text-cyan-400 hover:underline;
-}
-.prose ul {
-  @apply list-disc list-inside space-y-1 mb-4;
-}
-.prose ol {
-  @apply list-decimal list-inside space-y-1 mb-4;
-}
-.prose li {
-  @apply text-navy-200;
-}
-.prose strong {
-  @apply text-white font-semibold;
-}
-.prose code {
-  @apply bg-navy-800 text-cyan-300 px-1.5 py-0.5 rounded text-sm font-mono;
-}
-.prose pre {
-  @apply bg-navy-800 rounded-lg p-4 overflow-x-auto mb-4;
-}
-.prose pre code {
-  @apply bg-transparent p-0;
-}
-.prose blockquote {
-  @apply border-l-4 border-cyan-500 pl-4 italic text-navy-300 my-4;
-}
-.prose hr {
-  @apply border-navy-700 my-8;
-}
-/* Tables */
-.prose table {
-  @apply w-full text-sm border-collapse mb-6;
-}
-.prose thead {
-  @apply bg-navy-800;
-}
-.prose th {
-  @apply text-left text-white font-semibold px-3 py-2 border border-navy-700;
-}
-.prose td {
-  @apply px-3 py-2 border border-navy-700 text-navy-300;
-}
-.prose tr:nth-child(even) {
-  @apply bg-navy-900/50;
+
+/* Smooth transitions */
+html, body, header, footer, main {
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
