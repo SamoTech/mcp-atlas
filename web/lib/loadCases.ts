@@ -25,7 +25,10 @@ export async function getCaseBySlug(slug: string): Promise<CaseFull> {
   const fullPath = path.join(CASES_DIR, `${slug}.md`)
   const raw = fs.readFileSync(fullPath, 'utf-8')
   const { data, content } = matter(raw)
-  const processed = await remark().use(remarkGfm).use(remarkHtml).process(content)
+  const processed = await remark()
+    .use(remarkGfm)
+    .use(remarkHtml, { sanitize: false })
+    .process(content)
   const index = getSiteIndex()
   const meta = index.cases.find((c) => c.slug === slug)!
   return {
