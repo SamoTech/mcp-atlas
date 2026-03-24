@@ -46,7 +46,7 @@ Every entry has an **Evidence Score** (1–10) based on proof depth, named syste
 - ✅ **Full-text search** — instant search across cases, servers, and patterns at [/search](https://mcp-atls.vercel.app/search)
 - ✅ **Compare Cases** — side-by-side comparison of any two deployments at [/compare](https://mcp-atls.vercel.app/compare)
 - ✅ **Changelog / What’s New** — every case grouped by date at [/changelog](https://mcp-atls.vercel.app/changelog)
-- ✅ **Evidence Score Calculator** — self-assess a case before submitting at [/score](https://mcp-atls.vercel.app/score)
+- ✅ **Evidence Score Calculator** — self-assess a case before submitting at [/score](https://mcp-atlas.vercel.app/score)
 - ✅ **Dark / Light mode** — toggle persisted to localStorage
 - ✅ **Mobile-responsive nav** — hamburger menu with active-link highlighting
 - ✅ **Per-page OG images** — dynamic social preview cards for every page
@@ -199,7 +199,6 @@ mcp-atlas/
 - [ ] Compare your MCP stack against public reference architectures
 - [ ] Team collaboration on internal case studies
 - [ ] Export compliance-ready MCP architecture reports
-- [ ] FastAPI backend + Postgres database
 - [ ] Paid tier with Stripe billing
 
 ---
