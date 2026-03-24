@@ -4,6 +4,7 @@
 
 ![MCP Atlas Banner](docs/assets/banner.png)
 
+[![Live Site](https://img.shields.io/badge/Live%20Site-mcp--atls.vercel.app-cyan?style=flat&logo=vercel)](https://mcp-atls.vercel.app)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Deployments Tracked](https://img.shields.io/badge/Deployments%20Tracked-3-blue)](#case-studies)
 [![Servers Documented](https://img.shields.io/badge/Servers%20Documented-6-green)](#server-registry)
@@ -14,6 +15,8 @@
 **The definitive registry of real-world enterprise MCP deployments.**
 
 Verified case studies · Server registries · Architecture patterns · Governance models
+
+🌐 **[mcp-atls.vercel.app](https://mcp-atls.vercel.app)** — Live searchable web platform
 
 [Explore Cases](#case-studies) · [Architecture Patterns](#architecture-patterns) · [Server Registry](#server-registry) · [Reports](#reports) · [Contribute](CONTRIBUTING.md)
 
@@ -47,6 +50,12 @@ MCP Atlas now tracks not just who uses MCP, but **how trustworthy each claim is.
 - ✅ Governance docs: access models and evidence policy
 - ✅ Machine-readable `data/index.json` for future frontend and API work
 - ✅ First report: [Enterprise MCP Adoption Report — Q1 2026](reports/2026-q1-enterprise-mcp-adoption.md)
+
+### New in v0.3.0
+- ✅ Live Next.js web platform — [mcp-atls.vercel.app](https://mcp-atls.vercel.app)
+- ✅ Searchable case studies with evidence score filtering
+- ✅ Server registry, architecture patterns, and reports pages
+- ✅ Full dark-mode UI with score badges and tag filters
 
 ---
 
@@ -135,6 +144,7 @@ mcp-atlas/
 │   └── assets/
 ├── reports/            # Enterprise MCP adoption reports
 ├── scripts/            # Validation scripts
+├── web/                # Next.js web platform (deployed to Vercel)
 ├── CONTRIBUTING.md
 ├── CHANGELOG.md
 └── README.md
@@ -155,12 +165,15 @@ mcp-atlas/
 - [x] Machine-readable `data/index.json`
 - [ ] 10 total verified enterprise profiles
 
-### Phase 2 — Web Platform 🔜
-- [ ] Next.js searchable frontend
-- [ ] FastAPI backend + Postgres database
+### Phase 2 — Web Platform 🚀 In Progress
+- [x] Next.js searchable frontend — **live at [mcp-atls.vercel.app](https://mcp-atls.vercel.app)**
+- [x] Case study cards with evidence score + tag filtering
+- [x] Server registry, patterns, and reports pages
+- [x] Dark-mode UI, score badges, responsive layout
 - [ ] Semantic search over case studies
 - [ ] Company submission form with verification workflow
 - [ ] Enterprise Readiness Score calculator
+- [ ] FastAPI backend + Postgres database
 
 ### Phase 3 — Private Workspaces 🔮
 - [ ] Private workspace for internal enterprise mapping
