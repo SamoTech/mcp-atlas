@@ -20,6 +20,7 @@ const config: Config = {
           700: '#1E3D52',
           800: '#152C3C',
           900: '#0D1B2A',
+          950: '#070E15',
         },
         cyan: {
           DEFAULT: '#00D4FF',
