@@ -8,7 +8,7 @@ import remarkGfm from 'remark-gfm'
 export interface PatternMeta {
   slug: string
   title: string
-  description?: string
+  summary: string
 }
 
 export interface PatternFull extends PatternMeta {
@@ -32,8 +32,8 @@ export async function getPatternBySlug(slug: string): Promise<PatternFull> {
   const processed = await remark().use(remarkGfm).use(remarkHtml).process(content)
   return {
     slug,
-    title: data.title ?? slug,
-    description: data.description ?? '',
+    title: data.title ?? slug.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase()),
+    summary: data.summary ?? '',
     contentHtml: processed.toString(),
   }
 }
