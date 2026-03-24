@@ -1,0 +1,53 @@
+{
+  "version": "0.2.0",
+  "generated_at": "2026-03-24",
+  "cases": [
+    {
+      "slug": "block",
+      "score": 5,
+      "evidence_level": "high",
+      "last_verified": "2026-03-24",
+      "source_count": 2,
+      "named_systems_count": 6,
+      "governance_disclosed": true,
+      "outcomes_disclosed": true,
+      "tags": ["fintech", "developer-tools", "governance"]
+    },
+    {
+      "slug": "gong",
+      "score": 4,
+      "evidence_level": "medium",
+      "last_verified": "2026-03-24",
+      "source_count": 2,
+      "named_systems_count": 4,
+      "governance_disclosed": true,
+      "outcomes_disclosed": false,
+      "tags": ["revenue", "crm", "bidirectional"]
+    },
+    {
+      "slug": "mindbreeze",
+      "score": 3,
+      "evidence_level": "medium",
+      "last_verified": "2026-03-24",
+      "source_count": 1,
+      "named_systems_count": 3,
+      "governance_disclosed": false,
+      "outcomes_disclosed": false,
+      "tags": ["operations", "incident-response", "knowledge"]
+    }
+  ],
+  "servers": [
+    {"slug": "github-mcp", "category": "developer-tools"},
+    {"slug": "snowflake-mcp", "category": "data-warehouse"},
+    {"slug": "jira-mcp", "category": "project-management"},
+    {"slug": "slack-mcp", "category": "collaboration"},
+    {"slug": "salesforce-mcp", "category": "crm"},
+    {"slug": "google-drive-mcp", "category": "documents"}
+  ],
+  "reports": [
+    {
+      "slug": "2026-q1-enterprise-mcp-adoption",
+      "title": "Enterprise MCP Adoption Report — Q1 2026"
+    }
+  ]
+}
