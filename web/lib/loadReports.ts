@@ -26,7 +26,10 @@ export async function getReportBySlug(slug: string): Promise<ReportFull> {
   const fullPath = path.join(REPORTS_DIR, `${slug}.md`)
   const raw = fs.readFileSync(fullPath, 'utf-8')
   const { data, content } = matter(raw)
-  const processed = await remark().use(remarkGfm).use(remarkHtml).process(content)
+  const processed = await remark()
+    .use(remarkGfm)
+    .use(remarkHtml, { sanitize: false })
+    .process(content)
   const index = getSiteIndex()
   const meta = index.reports.find((r) => r.slug === slug)
   return {

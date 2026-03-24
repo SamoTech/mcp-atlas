@@ -1,5 +1,5 @@
 {
-  "version": "0.4.0",
+  "version": "0.5.0",
   "generated_at": "2026-03-24",
   "cases": [
     {
@@ -264,17 +264,35 @@
     }
   ],
   "servers": [
-    {"slug": "github-mcp",       "category": "developer-tools"},
-    {"slug": "snowflake-mcp",    "category": "data-warehouse"},
-    {"slug": "jira-mcp",         "category": "project-management"},
-    {"slug": "slack-mcp",        "category": "collaboration"},
-    {"slug": "salesforce-mcp",   "category": "crm"},
-    {"slug": "google-drive-mcp", "category": "documents"}
+    {"slug": "github-mcp",              "category": "developer-tools"},
+    {"slug": "snowflake-mcp",           "category": "data-warehouse"},
+    {"slug": "jira-mcp",                "category": "project-management"},
+    {"slug": "slack-mcp",               "category": "collaboration"},
+    {"slug": "salesforce-mcp",          "category": "crm"},
+    {"slug": "google-drive-mcp",        "category": "documents"},
+    {"slug": "stripe-mcp",              "category": "fintech"},
+    {"slug": "notion-mcp",              "category": "productivity"},
+    {"slug": "linear-mcp",              "category": "project-management"},
+    {"slug": "atlassian-jira-mcp",      "category": "project-management"},
+    {"slug": "atlassian-confluence-mcp","category": "knowledge-base"},
+    {"slug": "cloudflare-mcp",          "category": "infrastructure"},
+    {"slug": "docker-mcp",              "category": "developer-tools"},
+    {"slug": "figma-mcp",               "category": "design"},
+    {"slug": "openai-mcp",              "category": "ai"},
+    {"slug": "hubspot-mcp",             "category": "crm"}
   ],
   "reports": [
     {
       "slug": "2026-q1-enterprise-mcp-adoption",
       "title": "Enterprise MCP Adoption Report — Q1 2026"
+    },
+    {
+      "slug": "2026-q1-mcp-security-risks",
+      "title": "MCP Security Risk Landscape — Q1 2026"
+    },
+    {
+      "slug": "2026-q1-mcp-architecture-patterns",
+      "title": "MCP Architecture Patterns Deep Dive — Q1 2026"
     }
   ]
 }
