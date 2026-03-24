@@ -11,6 +11,8 @@ export interface CaseMeta {
   governance_disclosed: boolean
   outcomes_disclosed: boolean
   tags: string[]
+  industry?: string
+  pattern?: string
 }
 
 export interface ServerMeta {

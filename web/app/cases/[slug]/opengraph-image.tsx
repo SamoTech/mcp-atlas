@@ -1,7 +1,8 @@
 import { ImageResponse } from 'next/og'
-import { getAllCases } from '@/lib/cases'
+import { getAllCases } from '@/lib/loadCases'
 
-export const runtime = 'edge'
+// Use nodejs runtime so fs/getAllCases work correctly
+export const runtime = 'nodejs'
 export const size = { width: 1200, height: 630 }
 export const contentType = 'image/png'
 
@@ -20,7 +21,6 @@ export default async function OgImage({ params }: { params: { slug: string } }) 
   const industry = c?.industry ?? ''
   const pattern = c?.pattern ?? ''
   const stars = '★'.repeat(Math.min(score, 5)) + '☆'.repeat(Math.max(0, 5 - Math.min(score, 5)))
-
   const evidenceColor = evidenceLevel === 'high' ? '#34d399' : evidenceLevel === 'medium' ? '#fbbf24' : '#f87171'
 
   return new ImageResponse(
@@ -37,7 +37,6 @@ export default async function OgImage({ params }: { params: { slug: string } }) 
           fontFamily: 'sans-serif',
         }}
       >
-        {/* Top: brand */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
           <div style={{ fontSize: 28, fontWeight: 700, color: '#ffffff' }}>
             MCP <span style={{ color: '#22d3ee' }}>Atlas</span>
@@ -45,7 +44,6 @@ export default async function OgImage({ params }: { params: { slug: string } }) 
           <div style={{ fontSize: 14, color: '#4a5568', marginLeft: 8 }}>Enterprise MCP Registry</div>
         </div>
 
-        {/* Middle: title */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
           <div style={{ fontSize: 52, fontWeight: 800, color: '#ffffff', lineHeight: 1.1 }}>
             {title}
@@ -54,27 +52,27 @@ export default async function OgImage({ params }: { params: { slug: string } }) 
             <span style={{ fontSize: 28, color: '#22d3ee' }}>{stars}</span>
             <span style={{
               fontSize: 14, fontWeight: 600, color: evidenceColor,
-              border: `1px solid ${evidenceColor}`, borderRadius: 6, padding: '4px 10px', textTransform: 'uppercase'
+              border: `1px solid ${evidenceColor}`, borderRadius: 6,
+              padding: '4px 10px', textTransform: 'uppercase',
             }}>
               {evidenceLevel} evidence
             </span>
           </div>
         </div>
 
-        {/* Bottom: meta */}
         <div style={{ display: 'flex', gap: '32px' }}>
           {industry && (
             <div style={{ fontSize: 16, color: '#94a3b8' }}>
-              🏭 <span style={{ color: '#e2e8f0' }}>{industry}</span>
+              Industry: <span style={{ color: '#e2e8f0' }}>{industry}</span>
             </div>
           )}
           {pattern && (
             <div style={{ fontSize: 16, color: '#94a3b8' }}>
-              🏗 <span style={{ color: '#e2e8f0' }}>{pattern.replace(/-/g, ' ')}</span>
+              Pattern: <span style={{ color: '#e2e8f0' }}>{pattern.replace(/-/g, ' ')}</span>
             </div>
           )}
           <div style={{ fontSize: 16, color: '#94a3b8' }}>
-            🔗 <span style={{ color: '#22d3ee' }}>mcp-atls.vercel.app</span>
+            <span style={{ color: '#22d3ee' }}>mcp-atls.vercel.app</span>
           </div>
         </div>
       </div>
