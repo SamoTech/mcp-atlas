@@ -5,6 +5,7 @@ import { remark } from 'remark'
 import remarkHtml from 'remark-html'
 import remarkGfm from 'remark-gfm'
 import { getSiteIndex, ServerMeta } from './index'
+import { rewriteMarkdownLinks } from './rewriteLinks'
 
 export interface ServerFull extends ServerMeta {
   title: string
@@ -30,7 +31,7 @@ export async function getServerBySlug(slug: string): Promise<ServerFull> {
   return {
     ...meta,
     title: data.title ?? slug,
-    contentHtml: processed.toString(),
+    contentHtml: rewriteMarkdownLinks(processed.toString()),
   }
 }
 

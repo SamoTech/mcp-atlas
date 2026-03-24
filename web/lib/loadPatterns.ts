@@ -4,6 +4,7 @@ import matter from 'gray-matter'
 import { remark } from 'remark'
 import remarkHtml from 'remark-html'
 import remarkGfm from 'remark-gfm'
+import { rewriteMarkdownLinks } from './rewriteLinks'
 
 export interface PatternMeta {
   slug: string
@@ -34,7 +35,7 @@ export async function getPatternBySlug(slug: string): Promise<PatternFull> {
     slug,
     title: data.title ?? slug.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase()),
     summary: data.summary ?? '',
-    contentHtml: processed.toString(),
+    contentHtml: rewriteMarkdownLinks(processed.toString()),
   }
 }
 

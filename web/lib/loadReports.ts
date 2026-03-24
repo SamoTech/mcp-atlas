@@ -5,6 +5,7 @@ import { remark } from 'remark'
 import remarkHtml from 'remark-html'
 import remarkGfm from 'remark-gfm'
 import { getSiteIndex, ReportMeta } from './index'
+import { rewriteMarkdownLinks } from './rewriteLinks'
 
 export interface ReportFull extends ReportMeta {
   date?: string
@@ -32,7 +33,7 @@ export async function getReportBySlug(slug: string): Promise<ReportFull> {
     slug,
     title: data.title ?? meta?.title ?? slug,
     date: data.date ?? undefined,
-    contentHtml: processed.toString(),
+    contentHtml: rewriteMarkdownLinks(processed.toString()),
   }
 }
 

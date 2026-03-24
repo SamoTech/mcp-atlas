@@ -5,6 +5,7 @@ import { remark } from 'remark'
 import remarkHtml from 'remark-html'
 import remarkGfm from 'remark-gfm'
 import { getSiteIndex, CaseMeta } from './index'
+import { rewriteMarkdownLinks } from './rewriteLinks'
 
 export interface CaseFull extends CaseMeta {
   title: string
@@ -30,7 +31,7 @@ export async function getCaseBySlug(slug: string): Promise<CaseFull> {
   return {
     ...meta,
     title: data.title ?? slug,
-    contentHtml: processed.toString(),
+    contentHtml: rewriteMarkdownLinks(processed.toString()),
   }
 }
 
