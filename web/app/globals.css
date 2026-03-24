@@ -43,3 +43,57 @@ html.light .prose-invert  {
 html, body, header, footer, main {
   transition: background-color 0.2s ease, color 0.2s ease;
 }
+
+/* ===== Prose table styles (hard override to guarantee rendering) ===== */
+.prose table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: auto;
+  font-size: 0.8125rem;
+  margin: 1.5rem 0;
+  display: table !important;
+}
+
+.prose thead tr {
+  background-color: #0D1B2A;
+  border-bottom: 1px solid #1E3D52;
+}
+
+.prose thead th {
+  padding: 0.625rem 0.875rem;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #ffffff;
+  white-space: nowrap;
+  border: 1px solid #1E3D52;
+}
+
+.prose tbody tr {
+  border-bottom: 1px solid #152C3C;
+}
+
+.prose tbody tr:nth-child(even) {
+  background-color: rgba(13, 27, 42, 0.4);
+}
+
+.prose tbody td {
+  padding: 0.5rem 0.875rem;
+  color: #CBD5E1;
+  vertical-align: top;
+  border: 1px solid #152C3C;
+}
+
+.prose tbody td strong {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* Light mode table overrides */
+html.light .prose thead tr { background-color: #F1F5F9; }
+html.light .prose thead th { color: #0F172A; border-color: #CBD5E1; }
+html.light .prose tbody tr { border-color: #E2E8F0; }
+html.light .prose tbody tr:nth-child(even) { background-color: rgba(241,245,249,0.6); }
+html.light .prose tbody td { color: #1E293B; border-color: #E2E8F0; }

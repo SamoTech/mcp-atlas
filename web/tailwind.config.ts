@@ -41,9 +41,53 @@ const config: Config = {
         sans: ['var(--font-geist-sans)', 'system-ui', 'sans-serif'],
         mono: ['var(--font-geist-mono)', 'monospace'],
       },
+      typography: {
+        DEFAULT: {
+          css: {
+            '--tw-prose-body': '#CBD5E1',
+            '--tw-prose-headings': '#ffffff',
+            '--tw-prose-links': '#00D4FF',
+            '--tw-prose-bold': '#ffffff',
+            '--tw-prose-code': '#00D4FF',
+            '--tw-prose-pre-bg': '#0D1B2A',
+            '--tw-prose-th-borders': '#1E3D52',
+            '--tw-prose-td-borders': '#152C3C',
+            table: {
+              width: '100%',
+              tableLayout: 'auto',
+              borderCollapse: 'collapse',
+            },
+            'thead th': {
+              backgroundColor: '#0D1B2A',
+              color: '#ffffff',
+              fontWeight: '600',
+              fontSize: '0.75rem',
+              textTransform: 'uppercase',
+              letterSpacing: '0.05em',
+              padding: '0.625rem 0.875rem',
+              borderBottom: '1px solid #1E3D52',
+              whiteSpace: 'nowrap',
+            },
+            'tbody tr': {
+              borderBottom: '1px solid #152C3C',
+            },
+            'tbody tr:nth-child(even)': {
+              backgroundColor: 'rgba(13,27,42,0.4)',
+            },
+            'tbody td': {
+              padding: '0.5rem 0.875rem',
+              color: '#CBD5E1',
+              fontSize: '0.8125rem',
+              verticalAlign: 'top',
+            },
+          },
+        },
+      },
     },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/typography'),
+  ],
 }
 
 export default config
