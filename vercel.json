@@ -1,6 +1,15 @@
 {
-  "buildCommand": "cd web && npm install && npm run build",
-  "outputDirectory": "web/out",
-  "installCommand": "echo 'install handled in buildCommand'",
-  "framework": "nextjs"
+  "version": 2,
+  "builds": [
+    {
+      "src": "web/package.json",
+      "use": "@vercel/next",
+      "config": {
+        "rootDirectory": "web"
+      }
+    }
+  ],
+  "routes": [
+    { "src": "/(.*)", "dest": "web/$1" }
+  ]
 }
