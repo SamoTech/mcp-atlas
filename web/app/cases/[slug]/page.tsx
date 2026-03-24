@@ -16,11 +16,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     openGraph: {
       title: `${c.title} — MCP Atlas`,
       description: `Evidence score ${c.score}/10 · ${c.tags.join(', ')}`,
-      images: [{
-        url: `/api/og?title=${encodeURIComponent(c.title)}&score=${c.score}&type=case`,
-        width: 1200,
-        height: 630,
-      }],
+      images: [{ url: `/api/og?title=${encodeURIComponent(c.title)}&score=${c.score}&type=case`, width: 1200, height: 630 }],
     },
     twitter: { card: 'summary_large_image' },
   }
@@ -28,12 +24,15 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 
 export default async function CaseDetailPage({ params }: { params: { slug: string } }) {
   const c = await getCaseBySlug(params.slug)
-
   return (
     <div className="mx-auto max-w-3xl px-4 py-12">
-      <div className="mb-6">
-        <a href="/cases" className="text-sm text-cyan-400 hover:underline">← Cases</a>
-      </div>
+      <nav className="text-xs text-navy-400 mb-6 flex items-center gap-1.5">
+        <a href="/" className="hover:text-cyan-400 transition">Home</a>
+        <span>/</span>
+        <a href="/cases" className="hover:text-cyan-400 transition">Cases</a>
+        <span>/</span>
+        <span className="text-white">{c.title}</span>
+      </nav>
       <div className="mb-8 space-y-3">
         <h1 className="text-3xl font-bold text-white">{c.title}</h1>
         <div className="flex flex-wrap items-center gap-3">
@@ -45,10 +44,19 @@ export default async function CaseDetailPage({ params }: { params: { slug: strin
           {c.tags.map((t) => <TagBadge key={t} tag={t} />)}
         </div>
       </div>
-      <article
-        className="prose prose-invert prose-table:text-sm max-w-none"
-        dangerouslySetInnerHTML={{ __html: c.contentHtml }}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'Article',
+          headline: c.title,
+          description: `Evidence score ${c.score}/10 · ${c.tags.join(', ')}`,
+          url: `https://mcp-atls.vercel.app/cases/${c.slug}`,
+          dateModified: c.last_verified,
+          publisher: { '@type': 'Organization', name: 'MCP Atlas', url: 'https://mcp-atls.vercel.app' },
+        }) }}
       />
+      <article className="prose prose-invert prose-table:text-sm max-w-none" dangerouslySetInnerHTML={{ __html: c.contentHtml }} />
     </div>
   )
 }
