@@ -1,5 +1,5 @@
 {
-  "version": "0.3.0",
+  "version": "0.4.0",
   "generated_at": "2026-03-24",
   "cases": [
     {
@@ -11,7 +11,9 @@
       "named_systems_count": 6,
       "governance_disclosed": true,
       "outcomes_disclosed": true,
-      "tags": ["fintech", "developer-tools", "governance"]
+      "tags": ["fintech", "developer-tools", "governance"],
+      "industry": "fintech",
+      "pattern": "hub-and-spoke"
     },
     {
       "slug": "gong",
@@ -22,7 +24,9 @@
       "named_systems_count": 4,
       "governance_disclosed": true,
       "outcomes_disclosed": false,
-      "tags": ["revenue", "crm", "bidirectional"]
+      "tags": ["revenue", "crm", "bidirectional"],
+      "industry": "saas",
+      "pattern": "bidirectional"
     },
     {
       "slug": "mindbreeze",
@@ -33,7 +37,9 @@
       "named_systems_count": 3,
       "governance_disclosed": false,
       "outcomes_disclosed": false,
-      "tags": ["operations", "incident-response", "knowledge"]
+      "tags": ["operations", "incident-response", "knowledge"],
+      "industry": "enterprise",
+      "pattern": "hub-and-spoke"
     },
     {
       "slug": "cloudflare",
@@ -44,7 +50,9 @@
       "named_systems_count": 4,
       "governance_disclosed": true,
       "outcomes_disclosed": false,
-      "tags": ["developer-tools", "infrastructure", "risk-tiered"]
+      "tags": ["developer-tools", "infrastructure", "risk-tiered"],
+      "industry": "infrastructure",
+      "pattern": "risk-tiered"
     },
     {
       "slug": "linear",
@@ -55,7 +63,9 @@
       "named_systems_count": 3,
       "governance_disclosed": true,
       "outcomes_disclosed": false,
-      "tags": ["developer-tools", "project-management"]
+      "tags": ["developer-tools", "project-management"],
+      "industry": "developer-tools",
+      "pattern": "hub-and-spoke"
     },
     {
       "slug": "replit",
@@ -66,7 +76,9 @@
       "named_systems_count": 4,
       "governance_disclosed": true,
       "outcomes_disclosed": false,
-      "tags": ["developer-tools", "sandbox", "ai-agent"]
+      "tags": ["developer-tools", "sandbox", "ai-agent"],
+      "industry": "developer-tools",
+      "pattern": "sandboxed-developer"
     },
     {
       "slug": "sourcegraph",
@@ -77,7 +89,9 @@
       "named_systems_count": 4,
       "governance_disclosed": true,
       "outcomes_disclosed": false,
-      "tags": ["developer-tools", "code-intelligence", "hub-and-spoke"]
+      "tags": ["developer-tools", "code-intelligence", "hub-and-spoke"],
+      "industry": "developer-tools",
+      "pattern": "hub-and-spoke"
     },
     {
       "slug": "zapier",
@@ -88,7 +102,9 @@
       "named_systems_count": 4,
       "governance_disclosed": true,
       "outcomes_disclosed": false,
-      "tags": ["automation", "integrations", "federated"]
+      "tags": ["automation", "integrations", "federated"],
+      "industry": "automation",
+      "pattern": "federated"
     },
     {
       "slug": "atlassian",
@@ -99,7 +115,9 @@
       "named_systems_count": 4,
       "governance_disclosed": true,
       "outcomes_disclosed": false,
-      "tags": ["project-management", "knowledge", "enterprise"]
+      "tags": ["project-management", "knowledge", "enterprise"],
+      "industry": "enterprise",
+      "pattern": "hub-and-spoke"
     },
     {
       "slug": "notion",
@@ -110,7 +128,139 @@
       "named_systems_count": 4,
       "governance_disclosed": true,
       "outcomes_disclosed": false,
-      "tags": ["knowledge", "documents", "productivity"]
+      "tags": ["knowledge", "documents", "productivity"],
+      "industry": "productivity",
+      "pattern": "hub-and-spoke"
+    },
+    {
+      "slug": "github",
+      "score": 8,
+      "evidence_level": "high",
+      "last_verified": "2026-03-24",
+      "source_count": 2,
+      "named_systems_count": 5,
+      "governance_disclosed": true,
+      "outcomes_disclosed": true,
+      "tags": ["developer-tools", "ci-cd", "code-review"],
+      "industry": "developer-tools",
+      "pattern": "hub-and-spoke"
+    },
+    {
+      "slug": "stripe",
+      "score": 8,
+      "evidence_level": "high",
+      "last_verified": "2026-03-24",
+      "source_count": 2,
+      "named_systems_count": 5,
+      "governance_disclosed": true,
+      "outcomes_disclosed": true,
+      "tags": ["fintech", "payments", "developer-tools"],
+      "industry": "fintech",
+      "pattern": "sandboxed-developer"
+    },
+    {
+      "slug": "shopify",
+      "score": 7,
+      "evidence_level": "high",
+      "last_verified": "2026-03-24",
+      "source_count": 2,
+      "named_systems_count": 4,
+      "governance_disclosed": true,
+      "outcomes_disclosed": true,
+      "tags": ["e-commerce", "ai-agent", "federated"],
+      "industry": "e-commerce",
+      "pattern": "federated"
+    },
+    {
+      "slug": "figma",
+      "score": 7,
+      "evidence_level": "high",
+      "last_verified": "2026-03-24",
+      "source_count": 2,
+      "named_systems_count": 4,
+      "governance_disclosed": true,
+      "outcomes_disclosed": true,
+      "tags": ["design", "developer-tools", "hub-and-spoke"],
+      "industry": "developer-tools",
+      "pattern": "hub-and-spoke"
+    },
+    {
+      "slug": "openai",
+      "score": 8,
+      "evidence_level": "high",
+      "last_verified": "2026-03-24",
+      "source_count": 2,
+      "named_systems_count": 4,
+      "governance_disclosed": true,
+      "outcomes_disclosed": true,
+      "tags": ["ai", "foundation-model", "hub-and-spoke"],
+      "industry": "ai",
+      "pattern": "hub-and-spoke"
+    },
+    {
+      "slug": "microsoft",
+      "score": 9,
+      "evidence_level": "high",
+      "last_verified": "2026-03-24",
+      "source_count": 2,
+      "named_systems_count": 5,
+      "governance_disclosed": true,
+      "outcomes_disclosed": true,
+      "tags": ["enterprise", "cloud", "federated"],
+      "industry": "enterprise",
+      "pattern": "federated"
+    },
+    {
+      "slug": "hubspot",
+      "score": 6,
+      "evidence_level": "high",
+      "last_verified": "2026-03-24",
+      "source_count": 2,
+      "named_systems_count": 4,
+      "governance_disclosed": true,
+      "outcomes_disclosed": true,
+      "tags": ["crm", "marketing", "bidirectional"],
+      "industry": "crm",
+      "pattern": "bidirectional"
+    },
+    {
+      "slug": "anthropic",
+      "score": 9,
+      "evidence_level": "high",
+      "last_verified": "2026-03-24",
+      "source_count": 2,
+      "named_systems_count": 5,
+      "governance_disclosed": true,
+      "outcomes_disclosed": true,
+      "tags": ["ai", "foundation-model", "hub-and-spoke"],
+      "industry": "ai",
+      "pattern": "hub-and-spoke"
+    },
+    {
+      "slug": "salesforce",
+      "score": 8,
+      "evidence_level": "high",
+      "last_verified": "2026-03-24",
+      "source_count": 2,
+      "named_systems_count": 5,
+      "governance_disclosed": true,
+      "outcomes_disclosed": true,
+      "tags": ["crm", "enterprise", "federated"],
+      "industry": "crm",
+      "pattern": "federated"
+    },
+    {
+      "slug": "docker",
+      "score": 6,
+      "evidence_level": "high",
+      "last_verified": "2026-03-24",
+      "source_count": 2,
+      "named_systems_count": 4,
+      "governance_disclosed": true,
+      "outcomes_disclosed": true,
+      "tags": ["developer-tools", "infrastructure", "containers"],
+      "industry": "infrastructure",
+      "pattern": "sandboxed-developer"
     }
   ],
   "servers": [
