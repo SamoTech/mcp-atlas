@@ -6,7 +6,7 @@
 
 [![Live Site](https://img.shields.io/badge/Live%20Site-mcp--atls.vercel.app-cyan?style=flat&logo=vercel)](https://mcp-atls.vercel.app)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Deployments Tracked](https://img.shields.io/badge/Deployments%20Tracked-3-blue)](#case-studies)
+[![Cases Verified](https://img.shields.io/badge/Cases%20Verified-10-blue)](#case-studies)
 [![Servers Documented](https://img.shields.io/badge/Servers%20Documented-6-green)](#server-registry)
 [![Stars](https://img.shields.io/github/stars/SamoTech/mcp-atlas?style=social)](https://github.com/SamoTech/mcp-atlas)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
@@ -35,45 +35,60 @@ Model Context Protocol (MCP) is the emerging standard for connecting AI agents t
 3. **What governance controls exist?** — Access policies, approval gates, risk tiers
 4. **Which architecture pattern worked?** — Not what should work — what *did* work
 
-Every entry has an **Enterprise Readiness Score** (1–5) based on proof depth, named systems, governance evidence, and workflow clarity.
+Every entry has an **Evidence Score** (1–10) based on proof depth, named systems, governance evidence, and outcome clarity. Use the **[Score Calculator](https://mcp-atls.vercel.app/score)** to self-assess before submitting.
 
 ---
 
-## Evidence Engine
+## What’s New
 
-MCP Atlas now tracks not just who uses MCP, but **how trustworthy each claim is.**
+### v0.4.0 — Phase 2 Complete
+- ✅ **10 verified enterprise case studies** — Block, Gong, Mindbreeze, Cloudflare, Linear, Replit, Sourcegraph, Zapier, Atlassian, Notion
+- ✅ **Full-text search** — instant search across cases, servers, and patterns at [/search](https://mcp-atls.vercel.app/search)
+- ✅ **Compare Cases** — side-by-side comparison of any two deployments at [/compare](https://mcp-atls.vercel.app/compare)
+- ✅ **Changelog / What’s New** — every case grouped by date at [/changelog](https://mcp-atls.vercel.app/changelog)
+- ✅ **Evidence Score Calculator** — self-assess a case before submitting at [/score](https://mcp-atls.vercel.app/score)
+- ✅ **Dark / Light mode** — toggle persisted to localStorage
+- ✅ **Mobile-responsive nav** — hamburger menu with active-link highlighting
+- ✅ **Per-page OG images** — dynamic social preview cards for every page
+- ✅ **SEO** — `sitemap.xml`, `robots.txt`, JSON-LD on all detail pages
+- ✅ **RSS feed** — subscribe to new cases at [/feed.xml](https://mcp-atls.vercel.app/feed.xml)
 
-### New in v0.2.0
-- ✅ GitHub Actions CI — validates every push and pull request automatically
-- ✅ Structured issue templates for new case studies and corrections
-- ✅ Server registry profiles for six high-value enterprise MCP servers
-- ✅ Governance docs: access models and evidence policy
-- ✅ Machine-readable `data/index.json` for future frontend and API work
-- ✅ First report: [Enterprise MCP Adoption Report — Q1 2026](reports/2026-q1-enterprise-mcp-adoption.md)
-
-### New in v0.3.0
+### v0.3.0
 - ✅ Live Next.js web platform — [mcp-atls.vercel.app](https://mcp-atls.vercel.app)
-- ✅ Searchable case studies with evidence score filtering
+- ✅ Case study cards with evidence score + tag filtering
 - ✅ Server registry, architecture patterns, and reports pages
-- ✅ Full dark-mode UI with score badges and tag filters
+- ✅ Full dark-mode UI with score badges and responsive layout
+
+### v0.2.0
+- ✅ GitHub Actions CI — validates every push and pull request
+- ✅ Structured issue templates for new case studies
+- ✅ Server registry profiles for six enterprise MCP servers
+- ✅ Governance docs: access models and evidence policy
+- ✅ Machine-readable `data/index.json`
+- ✅ First report: [Enterprise MCP Adoption Report — Q1 2026](reports/2026-q1-enterprise-mcp-adoption.md)
 
 ---
 
 ## Case Studies
 
-| Company | Industry | MCP Use Case | Systems Connected | Readiness Score | Profile |
-|---------|----------|--------------|-------------------|:---------------:|---------|
-| Block | Fintech | Dev + cross-functional productivity | GitHub, Jira, Slack, Snowflake, Google Drive | ⭐⭐⭐⭐⭐ | [View →](data/cases/block.md) |
-| Gong | Revenue Intelligence | Cross-system AI agent unification | Salesforce, HubSpot, Microsoft Copilot | ⭐⭐⭐⭐ | [View →](data/cases/gong.md) |
-| Mindbreeze | Enterprise Search | Incident investigation assistant | Ticketing, internal docs, telemetry | ⭐⭐⭐ | [View →](data/cases/mindbreeze.md) |
+| Company | Industry | Pattern | Score | Profile |
+|---------|----------|---------|:-----:|---------|
+| Block | Fintech | Hub-and-Spoke | 5/10 | [View →](data/cases/block.md) |
+| Gong | Revenue Intelligence | Bidirectional Bridge | 4/10 | [View →](data/cases/gong.md) |
+| Mindbreeze | Enterprise Search | Internal API Proxy | 3/10 | [View →](data/cases/mindbreeze.md) |
+| Cloudflare | Infrastructure | Internal API Proxy + Risk-Tiered | 7/10 | [View →](data/cases/cloudflare.md) |
+| Linear | Developer Tools | Internal API Proxy | 6/10 | [View →](data/cases/linear.md) |
+| Replit | Developer Tools | Sandboxed Developer | 7/10 | [View →](data/cases/replit.md) |
+| Sourcegraph | Code Intelligence | Hub-and-Spoke | 6/10 | [View →](data/cases/sourcegraph.md) |
+| Zapier | Automation | Federated Registry | 6/10 | [View →](data/cases/zapier.md) |
+| Atlassian | Project Management | Internal API Proxy | 7/10 | [View →](data/cases/atlassian.md) |
+| Notion | Knowledge Management | Internal API Proxy | 6/10 | [View →](data/cases/notion.md) |
 
-> **Transparency note:** Cases are scored by evidence quality, not company size or marketing. "Architecturally vague" claims receive a score of 1 regardless of vendor reputation.
+> **Transparency note:** Cases are scored by evidence quality, not company size or marketing.
 
 ---
 
 ## Architecture Patterns
-
-Six battle-tested patterns extracted from real deployments:
 
 | Pattern | Description | Best For | Reference |
 |---------|-------------|----------|-----------|
@@ -81,20 +96,18 @@ Six battle-tested patterns extracted from real deployments:
 | Federated Registry | Teams own their MCP servers; central discovery only | Platform-engineering orgs | [View →](docs/patterns/federated-registry.md) |
 | Risk-Tiered Access | Tools classified by risk; different approval chains | Regulated industries | [View →](docs/patterns/risk-tiered-access.md) |
 | Bidirectional Bridge | Agent reads AND writes across platforms | Revenue and CRM workflows | [View →](docs/patterns/bidirectional-bridge.md) |
-| Internal API Proxy | MCP wraps proprietary internal APIs | Enterprises avoiding direct LLM data access | [View →](docs/patterns/internal-api-proxy.md) |
+| Internal API Proxy | MCP wraps proprietary internal APIs | Enterprises with existing REST APIs | [View →](docs/patterns/internal-api-proxy.md) |
 | Sandboxed Developer | Per-developer MCP bundles, org-managed | Dev productivity programs | [View →](docs/patterns/sandboxed-developer.md) |
 
 ---
 
 ## Server Registry
 
-MCP servers documented with enterprise context:
-
 | Server | Category | Used By | Auth | Profile |
 |--------|----------|---------|------|---------|
-| GitHub MCP | Developer Tools | Block | OAuth | [View →](data/servers/github-mcp.md) |
+| GitHub MCP | Developer Tools | Block, Sourcegraph | OAuth | [View →](data/servers/github-mcp.md) |
 | Snowflake MCP | Data Warehouse | Block | Service Account | [View →](data/servers/snowflake-mcp.md) |
-| Jira MCP | Project Management | Block | API Token | [View →](data/servers/jira-mcp.md) |
+| Jira MCP | Project Management | Block, Atlassian | API Token | [View →](data/servers/jira-mcp.md) |
 | Slack MCP | Messaging | Block | Bot Token | [View →](data/servers/slack-mcp.md) |
 | Salesforce MCP | CRM | Gong | OAuth | [View →](data/servers/salesforce-mcp.md) |
 | Google Drive MCP | Document Storage | Block | OAuth | [View →](data/servers/google-drive-mcp.md) |
@@ -109,15 +122,15 @@ MCP servers documented with enterprise context:
 
 ---
 
-## Enterprise Readiness Score Rubric
+## Evidence Score Rubric
 
 | Score | Meaning |
 |-------|---------|
-| ⭐ | Claim made, zero technical evidence |
-| ⭐⭐ | Architecturally described, no named systems |
-| ⭐⭐⭐ | Named systems + workflow described |
-| ⭐⭐⭐⭐ | Named systems + governance controls documented |
-| ⭐⭐⭐⭐⭐ | All above + measured user/business outcomes |
+| 1–2 | Claim made, zero technical evidence |
+| 3–4 | Architecturally described, no named systems |
+| 5–6 | Named systems + workflow described |
+| 7–8 | Named systems + governance controls documented |
+| 9–10 | All above + measured user/business outcomes published |
 
 ---
 
@@ -133,18 +146,20 @@ MCP servers documented with enterprise context:
 ```
 mcp-atlas/
 ├── data/
-│   ├── cases/          # Enterprise case study files
-│   ├── servers/        # MCP server profiles
+│   ├── cases/          # 10 verified enterprise case study files
+│   ├── servers/        # 6 MCP server profiles
 │   ├── schema/         # Templates for data entry
 │   └── index.json      # Machine-readable catalog
 ├── docs/
-│   ├── patterns/       # Architecture pattern deep-dives
+│   ├── patterns/       # 6 architecture pattern deep-dives
 │   ├── governance/     # Evidence policy and access models
-│   ├── ARCHITECTURE.md
-│   └── assets/
+│   └── assets/         # Banner, logo
 ├── reports/            # Enterprise MCP adoption reports
 ├── scripts/            # Validation scripts
-├── web/                # Next.js web platform (deployed to Vercel)
+├── web/                # Next.js web platform (Vercel)
+│   ├── app/            # App Router pages
+│   ├── components/     # Shared UI components
+│   └── lib/            # Data loaders
 ├── CONTRIBUTING.md
 ├── CHANGELOG.md
 └── README.md
@@ -163,23 +178,29 @@ mcp-atlas/
 - [x] CI validation workflow
 - [x] Q1 2026 Enterprise MCP Adoption Report
 - [x] Machine-readable `data/index.json`
-- [ ] 10 total verified enterprise profiles
+- [x] 10 total verified enterprise profiles
 
-### Phase 2 — Web Platform 🚀 In Progress
+### Phase 2 — Web Platform ✅ Complete
 - [x] Next.js searchable frontend — **live at [mcp-atls.vercel.app](https://mcp-atls.vercel.app)**
 - [x] Case study cards with evidence score + tag filtering
 - [x] Server registry, patterns, and reports pages
-- [x] Dark-mode UI, score badges, responsive layout
-- [ ] Semantic search over case studies
-- [ ] Company submission form with verification workflow
-- [ ] Enterprise Readiness Score calculator
-- [ ] FastAPI backend + Postgres database
+- [x] Dark / light mode UI, score badges, responsive layout
+- [x] Full-text search across cases, servers, and patterns
+- [x] Enterprise Readiness Score calculator
+- [x] Company submission form with GitHub issue workflow
+- [x] Compare Cases — side-by-side deployment comparison
+- [x] Changelog / What’s New page
+- [x] Per-page OG images, `sitemap.xml`, `robots.txt`, JSON-LD
+- [x] RSS feed for new case subscriptions
+- [x] Mobile hamburger nav with active-link highlighting
 
-### Phase 3 — Private Workspaces 🔮
+### Phase 3 — Private Workspaces 🔮 Next
 - [ ] Private workspace for internal enterprise mapping
 - [ ] Compare your MCP stack against public reference architectures
 - [ ] Team collaboration on internal case studies
 - [ ] Export compliance-ready MCP architecture reports
+- [ ] FastAPI backend + Postgres database
+- [ ] Paid tier with Stripe billing
 
 ---
 
