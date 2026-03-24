@@ -1,3 +1,8 @@
+---
+title: Federated Registry
+summary: Teams own their own MCP servers with a central discovery layer — high autonomy, no central gateway, ideal for platform-engineering orgs.
+---
+
 # Pattern: Federated Registry
 
 ## Summary

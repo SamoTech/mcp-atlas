@@ -1,3 +1,8 @@
+---
+title: Bidirectional Bridge
+summary: A platform acts as both MCP client and server, creating a two-way intelligence bridge between internal data and external AI agents.
+---
+
 # Pattern: Bidirectional Bridge
 
 ## Summary

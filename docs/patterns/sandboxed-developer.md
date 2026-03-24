@@ -1,36 +1,39 @@
-# Pattern: Sandboxed Developer
+---
+title: Sandboxed Developer Access
+summary: Developers get MCP access to internal tools inside an isolated sandbox — full capability for testing and building, zero production blast radius.
+---
+
+# Pattern: Sandboxed Developer Access
 
 ## Summary
 
-Each developer (or team) receives a pre-approved MCP server bundle managed by the organization. Developers cannot add arbitrary servers. The bundle is versioned, audited, and updated centrally.
+Developers and AI coding agents are given full MCP tool access within a sandboxed environment that mirrors production. The sandbox has read access to production data snapshots but all write operations are isolated.
 
 ## Diagram
 
 ```
-[Org MCP Team]
-      │ publishes approved bundles
-      ▼
-[Developer Environment]
-  ├── GitHub MCP  (approved)
-  ├── Jira MCP    (approved)
-  ├── Slack MCP   (approved)
-  └── Snowflake MCP (approved, read-only)
+[Developer / AI Coding Agent]
+          ↓
+  [Sandbox MCP Gateway]
+  /                   \
+[Full Tool Access]   [Prod Data Snapshot]
+  (write → sandbox)   (read-only)
 ```
 
 ## When to use
 
-- Developer productivity programs at scale
-- When security and compliance teams need to pre-screen all tool access
-- When onboarding speed matters (no per-developer setup decisions)
+- Enabling AI coding agents (Copilot, Cursor) with internal tool access
+- When developer productivity is the goal but prod safety is non-negotiable
+- Onboarding new engineers with full context, zero risk
 
 ## Trade-offs
 
 | Pro | Con |
 |-----|-----|
-| Consistent security posture | Less developer flexibility |
-| Easy to audit and update | Approval lag for new tools |
-| Fast onboarding | May frustrate power users |
+| Full capability for dev agents | Snapshot data may be stale |
+| Zero production blast radius | Sandbox infra cost |
+| Fast onboarding | Sync complexity between sandbox and prod |
 
 ## Real-world reference
 
-Block distributes approved MCP server bundles across its developer organization.
+Replit's MCP implementation follows this pattern for their agent-based development environment.

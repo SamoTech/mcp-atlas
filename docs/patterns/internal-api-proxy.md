@@ -1,27 +1,37 @@
+---
+title: Internal API Proxy
+summary: MCP wraps existing internal REST/GraphQL APIs without rebuilding them — lowest migration cost for enterprises with established API infrastructure.
+---
+
 # Pattern: Internal API Proxy
 
 ## Summary
 
-A custom MCP server wraps proprietary internal APIs, exposing them to agents without giving the LLM direct access to internal infrastructure. The MCP server acts as a permission-aware translation layer.
+An MCP server acts as a thin translation layer over existing internal APIs. No business logic moves; MCP just exposes existing endpoints as tools with proper schemas and descriptions.
 
 ## Diagram
 
 ```
-LLM / Agent
-    │  (MCP tool call)
-    ▼
-[Custom MCP Server]   ← controls what gets exposed
-    │  (internal API call)
-    ▼
-[Internal API / Database / Service]
+[AI Agent]
+    ↓
+[MCP Proxy Server]
+    ↓  (translates MCP calls → HTTP/REST)
+[Existing Internal APIs]
+    ↓
+[Databases / Services]
 ```
 
 ## When to use
 
-- When internal APIs are not designed for direct LLM consumption
-- When data contracts or compliance rules prevent raw API exposure
-- When you need to sanitize, filter, or transform internal data before agent use
+- Organizations with mature internal REST or GraphQL APIs
+- When migration cost must be minimized
+- When teams want MCP access without touching existing services
+- Ideal first step for enterprises evaluating MCP
 
-## Real-world reference
+## Trade-offs
 
-Block writes custom MCP servers for internal APIs as part of its enterprise deployment.
+| Pro | Con |
+|-----|-----|
+| Zero changes to existing APIs | Proxy adds latency |
+| Fast to implement | Tool descriptions must be written manually |
+| Low risk migration path | Auth must be managed in two places |

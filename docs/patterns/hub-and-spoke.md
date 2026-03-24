@@ -1,34 +1,39 @@
-# Pattern: Hub-and-Spoke
+---
+title: Hub and Spoke
+summary: A single central MCP gateway routes all agent requests to downstream services — full audit trail, unified auth, and consistent policy enforcement.
+---
+
+# Pattern: Hub and Spoke
 
 ## Summary
 
-A central MCP Gateway acts as the single routing layer for all agent-to-server communication. Individual MCP servers are registered with the gateway and accessed only through it.
+All agent requests flow through a single central MCP gateway. The gateway handles authentication, authorization, rate-limiting, and audit logging before routing to downstream MCP servers.
 
 ## Diagram
 
 ```
-Agent / LLM
-     │
-     ▼
-[MCP Gateway]
-  /   |   \
-[S1] [S2] [S3]   ← MCP Servers (GitHub, Snowflake, Jira, etc.)
+         [AI Agent]
+             ↓
+    [Central MCP Gateway]
+    /        |         \
+[HR MCP] [Docs MCP] [Code MCP]
 ```
 
 ## When to use
 
-- Large enterprises with centralized IT governance
-- When a single audit log for all agent tool calls is required
-- When tool access policies must be enforced consistently
+- Regulated industries (finance, healthcare, legal)
+- When a single audit trail is required
+- When multiple agents need access to the same set of tools
+- When security policy must be enforced uniformly
 
 ## Trade-offs
 
 | Pro | Con |
 |-----|-----|
-| Single access control point | Gateway is a single point of failure |
-| Centralized audit logging | Latency overhead per tool call |
-| Easier policy enforcement | Bottleneck for high-throughput agent workloads |
+| Unified auth & audit | Gateway is a single point of failure |
+| Easy policy enforcement | Latency overhead per request |
+| Simple mental model | Requires dedicated gateway team |
 
 ## Real-world reference
 
-Block uses this pattern in combination with sandboxed developer bundles. Gong uses a version of this for its MCP Gateway product.
+Block's MCP deployment uses a hub-and-spoke model with a dedicated MCP infrastructure team.
