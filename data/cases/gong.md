@@ -1,3 +1,6 @@
+---
+title: "Gong.io — Bidirectional Revenue Intelligence"
+---
 # Case Study: Gong
 
 ## Overview

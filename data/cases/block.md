@@ -1,3 +1,6 @@
+---
+title: "Block, Inc. — Goose AI Agent"
+---
 # Case Study: Block
 
 ## Overview

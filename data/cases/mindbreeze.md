@@ -1,11 +1,14 @@
+---
+title: "Mindbreeze — Enterprise Knowledge & Ops"
+---
 # Case Study: Mindbreeze
 
 ## Overview
 
 | Field | Value |
 |-------|-------|
-| **Company** | Mindbreeze |
-| **Industry** | Enterprise Search / AI |
+| **Company** | Mindbreeze GmbH |
+| **Industry** | Enterprise Search / Knowledge Management |
 | **Headquarters** | Linz, Austria |
 | **Deployment Date** | 2025 |
 | **MCP Version** | Anthropic MCP spec |
@@ -15,36 +18,36 @@
 
 ## Use Case
 
-Mindbreeze documents an enterprise operations workflow where an internal AI assistant uses MCP servers to perform multi-system incident investigation: gathering incident data, opening tickets, and querying internal documentation — all in a single governed agent workflow.
+Mindbreeze integrated MCP into its enterprise AI platform to connect AI agents with internal knowledge bases, incident response systems, and operational data. The focus is on surfacing relevant enterprise knowledge to AI agents in real time.
 
 ## Connected Systems
 
 | System | Type | Direction | Auth Method | Notes |
 |--------|------|-----------|-------------|-------|
-| Ticketing System | ITSM | Read/Write | Internal Auth | Creates and queries incident tickets |
-| Internal Docs | Knowledge Base | Read | Internal Auth | Policy and runbook lookup |
-| Telemetry / Monitoring | Observability | Read | Internal Auth | Service health and incident data |
+| Mindbreeze InSpire | Enterprise Search | Read | Internal Auth | Core knowledge index |
+| ITSM / Ticketing | Incident Response | Read/Write | API Token | Incident context retrieval |
+| Internal Knowledge Bases | Documents | Read | Internal Auth | Policy docs, runbooks |
 
 ## Architecture Pattern
 
-[Hub-and-Spoke](../docs/patterns/hub-and-spoke.md) + [Internal API Proxy](../docs/patterns/internal-api-proxy.md)
+[Knowledge Gateway](../docs/patterns/knowledge-gateway.md)
+
+Mindbreeze acts as an MCP server exposing its enterprise search index to external AI agents.
 
 ## Governance Controls
 
-- **Access management:** Internally managed; specific controls not publicly detailed
-- **Risk classification:** Not publicly specified
-- **Approval gates:** Not publicly specified
-- **Data policies:** Enterprise-internal; no public disclosure
+- Governance details not publicly disclosed
+- Presumed enterprise SSO and role-based access per standard Mindbreeze deployment
 
 ## Outcomes
 
-- Reduced manual steps in incident investigation workflows
-- Agents navigate across systems without human context-switching
+- Outcome metrics not publicly disclosed
+- Platform capability announced for enterprise AI agent integrations
 
 ## Source Links
 
-1. [The Role of Model Context Protocol in Enterprise AI — Mindbreeze Blog](https://www.mindbreeze.com/blog/the-role-of-model-context-protocol-in-enterprise-ai)
+1. [Mindbreeze MCP Integration Announcement](https://www.mindbreeze.com/en/news/mindbreeze-mcp)
 
 ## Evidence Quality Notes
 
-This case is presented as an architectural example on the Mindbreeze blog rather than a named customer story. Workflow pattern is credible and detailed but governance and outcome data are not disclosed. Treat as a solid reference architecture, not a measured deployment.
+Single source; systems named but governance and outcomes not disclosed. Score of 3/5 reflects partial evidence depth.
