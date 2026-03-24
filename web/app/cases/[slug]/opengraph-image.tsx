@@ -1,7 +1,6 @@
 import { ImageResponse } from 'next/og'
 import { getAllCases } from '@/lib/loadCases'
 
-// Use nodejs runtime so fs/getAllCases work correctly
 export const runtime = 'nodejs'
 export const size = { width: 1200, height: 630 }
 export const contentType = 'image/png'
@@ -20,7 +19,7 @@ export default async function OgImage({ params }: { params: { slug: string } }) 
   const evidenceLevel = c?.evidence_level ?? 'unknown'
   const industry = c?.industry ?? ''
   const pattern = c?.pattern ?? ''
-  const stars = '★'.repeat(Math.min(score, 5)) + '☆'.repeat(Math.max(0, 5 - Math.min(score, 5)))
+  const stars = '\u2605'.repeat(Math.min(score, 5)) + '\u2606'.repeat(Math.max(0, 5 - Math.min(score, 5)))
   const evidenceColor = evidenceLevel === 'high' ? '#34d399' : evidenceLevel === 'medium' ? '#fbbf24' : '#f87171'
 
   return new ImageResponse(
@@ -61,12 +60,12 @@ export default async function OgImage({ params }: { params: { slug: string } }) 
         </div>
 
         <div style={{ display: 'flex', gap: '32px' }}>
-          {industry && (
+          {industry !== '' && (
             <div style={{ fontSize: 16, color: '#94a3b8' }}>
               Industry: <span style={{ color: '#e2e8f0' }}>{industry}</span>
             </div>
           )}
-          {pattern && (
+          {pattern !== '' && (
             <div style={{ fontSize: 16, color: '#94a3b8' }}>
               Pattern: <span style={{ color: '#e2e8f0' }}>{pattern.replace(/-/g, ' ')}</span>
             </div>

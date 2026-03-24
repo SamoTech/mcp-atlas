@@ -17,6 +17,38 @@ if (fs.existsSync(assetsDir)) {
   }
 }
 
+// Generate static /api/cases.json from data/index.json at build time
+const indexPath = path.join(__dirname, '..', 'data', 'index.json')
+if (fs.existsSync(indexPath)) {
+  const index = JSON.parse(fs.readFileSync(indexPath, 'utf-8'))
+  const apiDir = path.join(publicDir, 'api')
+  fs.mkdirSync(apiDir, { recursive: true })
+  const payload = {
+    version: '1.0',
+    generated_at: new Date().toISOString(),
+    count: index.cases.length,
+    note: 'Static export. Filter client-side using the fields below.',
+    cases: index.cases.map((c) => ({
+      slug: c.slug,
+      score: c.score,
+      evidence_level: c.evidence_level,
+      industry: c.industry || null,
+      pattern: c.pattern || null,
+      tags: c.tags,
+      named_systems_count: c.named_systems_count,
+      source_count: c.source_count,
+      governance_disclosed: c.governance_disclosed,
+      outcomes_disclosed: c.outcomes_disclosed,
+      last_verified: c.last_verified,
+      url: `https://mcp-atls.vercel.app/cases/${c.slug}/`,
+    })),
+  }
+  fs.writeFileSync(
+    path.join(apiDir, 'cases.json'),
+    JSON.stringify(payload, null, 2)
+  )
+}
+
 const nextConfig = {
   output: 'export',
   trailingSlash: true,
