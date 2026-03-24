@@ -5,7 +5,8 @@
 ![MCP Atlas Banner](docs/assets/banner.png)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Deployments Tracked](https://img.shields.io/badge/Deployments%20Tracked-12-blue)](#case-studies)
+[![Deployments Tracked](https://img.shields.io/badge/Deployments%20Tracked-3-blue)](#case-studies)
+[![Servers Documented](https://img.shields.io/badge/Servers%20Documented-6-green)](#server-registry)
 [![Stars](https://img.shields.io/github/stars/SamoTech/mcp-atlas?style=social)](https://github.com/SamoTech/mcp-atlas)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 [![GitHub Sponsors](https://img.shields.io/badge/Sponsor-GitHub%20Sponsors-ff69b4)](https://github.com/sponsors/SamoTech)
@@ -14,7 +15,7 @@
 
 Verified case studies · Server registries · Architecture patterns · Governance models
 
-[Explore Cases](#case-studies) · [Architecture Patterns](#architecture-patterns) · [Server Registry](#server-registry) · [Contribute](CONTRIBUTING.md)
+[Explore Cases](#case-studies) · [Architecture Patterns](#architecture-patterns) · [Server Registry](#server-registry) · [Reports](#reports) · [Contribute](CONTRIBUTING.md)
 
 </div>
 
@@ -32,6 +33,20 @@ Model Context Protocol (MCP) is the emerging standard for connecting AI agents t
 4. **Which architecture pattern worked?** — Not what should work — what *did* work
 
 Every entry has an **Enterprise Readiness Score** (1–5) based on proof depth, named systems, governance evidence, and workflow clarity.
+
+---
+
+## Evidence Engine
+
+MCP Atlas now tracks not just who uses MCP, but **how trustworthy each claim is.**
+
+### New in v0.2.0
+- ✅ GitHub Actions CI — validates every push and pull request automatically
+- ✅ Structured issue templates for new case studies and corrections
+- ✅ Server registry profiles for six high-value enterprise MCP servers
+- ✅ Governance docs: access models and evidence policy
+- ✅ Machine-readable `data/index.json` for future frontend and API work
+- ✅ First report: [Enterprise MCP Adoption Report — Q1 2026](reports/2026-q1-enterprise-mcp-adoption.md)
 
 ---
 
@@ -66,14 +81,22 @@ Six battle-tested patterns extracted from real deployments:
 
 MCP servers documented with enterprise context:
 
-| Server | Category | Used By | Auth | Enterprise Notes |
-|--------|----------|---------|------|------------------|
-| GitHub MCP | Developer Tools | Block | OAuth | Scoped to repo-level permissions in enterprise rollout |
-| Snowflake MCP | Data Warehouse | Block | Service Account | Read-only by policy; write routes require approval |
-| Jira MCP | Project Management | Block | API Token | Approved in Block's developer bundle |
-| Slack MCP | Messaging | Block | Bot Token | Message-read scoped; no admin perms |
-| Salesforce MCP | CRM | Gong | OAuth | Bidirectional; write-back gated by Gong logic |
-| Google Drive MCP | Document Storage | Block | OAuth | Included in approved productivity bundle |
+| Server | Category | Used By | Auth | Profile |
+|--------|----------|---------|------|---------|
+| GitHub MCP | Developer Tools | Block | OAuth | [View →](data/servers/github-mcp.md) |
+| Snowflake MCP | Data Warehouse | Block | Service Account | [View →](data/servers/snowflake-mcp.md) |
+| Jira MCP | Project Management | Block | API Token | [View →](data/servers/jira-mcp.md) |
+| Slack MCP | Messaging | Block | Bot Token | [View →](data/servers/slack-mcp.md) |
+| Salesforce MCP | CRM | Gong | OAuth | [View →](data/servers/salesforce-mcp.md) |
+| Google Drive MCP | Document Storage | Block | OAuth | [View →](data/servers/google-drive-mcp.md) |
+
+---
+
+## Reports
+
+| Report | Date | Link |
+|--------|------|------|
+| Enterprise MCP Adoption — Q1 2026 | March 2026 | [Read →](reports/2026-q1-enterprise-mcp-adoption.md) |
 
 ---
 
@@ -89,22 +112,29 @@ MCP servers documented with enterprise context:
 
 ---
 
+## Governance
+
+- [Access Models](docs/governance/access-models.md) — Read-only, write-confirm, admin-gated
+- [Evidence Policy](docs/governance/evidence-policy.md) — Scoring rules, inference rules, correction policy
+
+---
+
 ## Project Structure
 
 ```
 mcp-atlas/
 ├── data/
-│   ├── cases/          # Individual enterprise case study files
+│   ├── cases/          # Enterprise case study files
 │   ├── servers/        # MCP server profiles
-│   └── schema/         # JSON schemas for validated data entry
+│   ├── schema/         # Templates for data entry
+│   └── index.json      # Machine-readable catalog
 ├── docs/
 │   ├── patterns/       # Architecture pattern deep-dives
-│   ├── governance/     # Governance model templates
-│   ├── ARCHITECTURE.md # Project architecture
-│   └── assets/        # Images, diagrams
-├── web/                # Next.js frontend (Phase 2)
-├── api/                # FastAPI backend (Phase 2)
-├── scripts/            # Data validation + build scripts
+│   ├── governance/     # Evidence policy and access models
+│   ├── ARCHITECTURE.md
+│   └── assets/
+├── reports/            # Enterprise MCP adoption reports
+├── scripts/            # Validation scripts
 ├── CONTRIBUTING.md
 ├── CHANGELOG.md
 └── README.md
@@ -114,14 +144,16 @@ mcp-atlas/
 
 ## Roadmap
 
-### Phase 1 — Registry Foundation ✅ (Current)
+### Phase 1 — Registry Foundation ✅
 - [x] Repo structure, schema, contributing guide
 - [x] 3 seed case studies (Block, Gong, Mindbreeze)
 - [x] 6 architecture patterns documented
-- [x] Server registry started
+- [x] 6 MCP server profiles
+- [x] Governance docs and evidence policy
+- [x] CI validation workflow
+- [x] Q1 2026 Enterprise MCP Adoption Report
+- [x] Machine-readable `data/index.json`
 - [ ] 10 total verified enterprise profiles
-- [ ] JSON schema validation for all entries
-- [ ] First downloadable Enterprise MCP Adoption Report (PDF)
 
 ### Phase 2 — Web Platform 🔜
 - [ ] Next.js searchable frontend
