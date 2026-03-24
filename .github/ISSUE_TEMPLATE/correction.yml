@@ -1,0 +1,30 @@
+name: Correction
+description: Report a factual correction with evidence
+title: "[Correction]: "
+labels: [correction]
+body:
+  - type: input
+    id: target
+    attributes:
+      label: File or page to correct
+    validations:
+      required: true
+  - type: textarea
+    id: current
+    attributes:
+      label: Current statement
+    validations:
+      required: true
+  - type: textarea
+    id: corrected
+    attributes:
+      label: Corrected statement
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence links
+      description: One link per line
+    validations:
+      required: true

@@ -1,0 +1,59 @@
+name: Enterprise case study
+description: Submit a new named enterprise MCP deployment
+title: "[Case Study]: "
+labels: [case-study]
+body:
+  - type: input
+    id: company
+    attributes:
+      label: Company name
+    validations:
+      required: true
+  - type: input
+    id: industry
+    attributes:
+      label: Industry
+    validations:
+      required: true
+  - type: textarea
+    id: use_case
+    attributes:
+      label: Use case
+      description: Describe the business problem MCP solved
+    validations:
+      required: true
+  - type: textarea
+    id: systems
+    attributes:
+      label: Connected systems
+      description: List named tools, APIs, and data sources
+    validations:
+      required: true
+  - type: textarea
+    id: governance
+    attributes:
+      label: Governance controls
+      description: Access model, approval gates, and data policy details
+    validations:
+      required: true
+  - type: textarea
+    id: outcomes
+    attributes:
+      label: Outcomes
+      description: Metrics, quotes, or published outcomes
+  - type: textarea
+    id: sources
+    attributes:
+      label: Public source links
+      description: One link per line
+    validations:
+      required: true
+  - type: checkboxes
+    id: rules
+    attributes:
+      label: Submission rules
+      options:
+        - label: This is a named deployment, not an anonymized claim
+          required: true
+        - label: I included public evidence links
+          required: true
